@@ -1,0 +1,32 @@
+// Create this file at: app/company/[slug]/page.tsx
+
+type PageProps = {
+    params: {
+      slug: string
+    }
+  }
+  
+  const formatTitle = (slug: string) => {
+    return slug.charAt(0).toUpperCase() + slug.slice(1);
+  };
+  
+  export default function CompanyPage({ params }: PageProps) {
+    const pageTitle = formatTitle(params.slug);
+  
+    return (
+      <div className="min-h-screen">
+          <div className="container mx-auto px-6 py-12">
+              <div className="max-w-4xl mx-auto">
+                  <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+                      <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                          {pageTitle}
+                      </span>
+                  </h1>
+                  <p className="text-xl text-gray-300 leading-relaxed">
+                      Content for the "{pageTitle}" page goes here. This could be your company's mission, team photos, job listings, or a contact form.
+                  </p>
+              </div>
+          </div>
+      </div>
+    )
+  }

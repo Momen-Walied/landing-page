@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌌 Base Theme Variables */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --primary: 260 83% 60%;
+    --secondary: 210 40% 96%;
+    --accent: 280 65% 60%;
+    --muted: 0 0% 90%;
+    --radius: 0.75rem;
+
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glow: 0 0 20px rgba(168, 85, 247, 0.6);
+  }
+
+  .dark {
+    --background: 240 5% 5%;
+    --foreground: 0 0% 98%;
+    --primary: 280 85% 70%;
+    --secondary: 240 6% 15%;
+    --accent: 200 100% 65%;
+    --muted: 240 3% 30%;
+
+    --glass-bg: rgba(0, 0, 0, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glow: 0 0 25px rgba(255, 255, 255, 0.5);
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* 🌟 Glassmorphism / Intelligent Cards */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: var(--glow);
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* 🎇 Dynamic Gradient Background */
+.bg-animated-gradient {
+  background: linear-gradient(270deg, #7a34eb, #3b82f6, #22d3ee, #a855f7);
+  background-size: 800% 800%;
+  animation: gradientFlow 18s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🌀 Intelligent Cursor Follower */
+.cursor-follower {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  transition: transform 0.15s ease-out;
+  z-index: 50;
+}
+
+/* ⚡ Magnetic Hover Effect */
+.magnetic {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.magnetic:hover {
+  transform: scale(1.05) translateY(-3px);
+}
+
+/* 🔄 Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 📊 Smart Grid Background */
+.grid-background {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: panGrid 30s linear infinite;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
+}
+
+@keyframes panGrid {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 40px 40px; }
+}
+
+/* ✨ Floating Animation */
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* 🌍 Marquee for Trusted By Section */
+.scroller__inner {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+  to { transform: translateX(-50%); }
+}
+
+/* 🏢 Company Logos Animation */
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+/* 🌐 Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8b5cf6, #3b82f6);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a78bfa, #60a5fa);
+}
+@keyframes smokeMove {
+  0% { transform: translateX(100%) translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateX(-50%) translateY(-40px) scale(1.3); opacity: 0.8; }
+  100% { transform: translateX(-120%) translateY(-80px) scale(1.6); opacity: 0; }
+}
+
+.animate-smoke {
+  animation: smokeMove 15s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
